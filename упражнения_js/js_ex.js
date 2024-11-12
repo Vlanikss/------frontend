@@ -1,26 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
+// ex1
 
-</head>
-<body>
-
-
-    <script>
-//ex1
-
-// const wordStart = prompt('введите');
-//     let wordEnd = '';
-//     for (let i = wordStart.length - 1; i >= 0; i -= 1) {
-//         wordEnd += wordStart[i];
-//     }
-//     if(wordStart == wordEnd){
-//         console.log(`Слово ${wordStart} является палиндромом`);
+const wordStart = prompt('введите');
+    let wordEnd = '';
+    for (let i = wordStart.length - 1; i >= 0; i -= 1) {
+        wordEnd += wordStart[i];
+    }
+    if(wordStart == wordEnd){
+        console.log(`Слово ${wordStart} является палиндромом`);
         
-//     }else{
-//         console.log(`Слово ${wordStart} не является палиндромом`);  
-//     }
+    }else{
+        console.log(`Слово ${wordStart} не является палиндромом`);  
+    }
     
 
 
@@ -29,7 +19,6 @@
 // const arr = [1, 2, 3, 1, 5, 4, 2, 3, 5, 'they', 'don\'t', 'know', 'that', 'we', 'know', 'that', 'they', 'know' ];
 // const uniqueArr = new Set(arr)
 // console.log(uniqueArr);
-
 
 //ex 3
 //  let number = +prompt('Введите число')
@@ -73,11 +62,3 @@
 //     board.push(row);
 //     console.log(board[i].join(' '))
 // }
-
-   
-    
-
-
-    </script>
-</body>
-</html>
