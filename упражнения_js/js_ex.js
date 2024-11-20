@@ -1,64 +1,129 @@
+// ex2
+
+// const calculator = function(a,b,operator){
+//    if(operator === '+'){
+//        return a + b
+//    } 
+//    if(operator === '*'){
+//        return a * b
+//    } 
+//    if(operator === '/'){
+//        return a / b
+//    } 
+//    if(operator === '-'){
+//        return a - b
+//    } 
+   
+// }
+
+// const array = {
+//    a: '',
+//    b: '',
+//    operator: ''
+// }
+// const finish = calculator.apply(array,[2,5,'*'])
+// console.log(finish);
+
+
+
+
+
+// ex3
+
+
+// const array = [
+//    {name:'vlad',age:17},
+//    {name:'oleg',age:22}
+// ]
+// const arrayOlder = array.filter((Number)=>{
+
+//    return Number.age > 18;
+// }
+// );
+
+// const keys = array.map(function (name) {
+//    return name.name
+// });
+
+// console.log(keys);
+
+// console.log(arrayOlder);
+
+
+
 // ex1
 
-const wordStart = prompt('введите');
-    let wordEnd = '';
-    for (let i = wordStart.length - 1; i >= 0; i -= 1) {
-        wordEnd += wordStart[i];
-    }
-    if(wordStart == wordEnd){
-        console.log(`Слово ${wordStart} является палиндромом`);
-        
-    }else{
-        console.log(`Слово ${wordStart} не является палиндромом`);  
-    }
-    
-
-
-
-//ex 2
-// const arr = [1, 2, 3, 1, 5, 4, 2, 3, 5, 'they', 'don\'t', 'know', 'that', 'we', 'know', 'that', 'they', 'know' ];
-// const uniqueArr = new Set(arr)
-// console.log(uniqueArr);
-
-//ex 3
-//  let number = +prompt('Введите число')
-//  let arr = [];
-
-//  for(let i = 0;i<=number;i+=1){
-//     arr.push(i)
-//  }
- 
-//  console.log(arr);
-
- 
-//ex 5
-//  let arrValues = []
-// const obj = {
-//         some: 'some',
-//         dom: 'text',
-//         arr: [1, 2, 3, 4, 5],
-//         tom: 'there'
-//     };
-//     for(let i in obj){
-
-//         if(Array.isArray(obj[i])){
-//         for(let j = 0 ;j<= obj[i].length; j++){
-//             arrValues.push(obj[i][j])
-//         }
-//         }else{arrValues.push(obj[i])}
-//     }
-// console.log(arrValues);
-
-
-//ex 4
-// const boardSize = 3; 
-// const board = [];
-
-// for (let i = 0; i < boardSize; i++) {
-//     const row = [];
-//     for (let j = 0; j < boardSize; j++) {
-//         row.push(Math.random() < 0.5 ? 'X' : 'O');
-//     }
-//     board.push(row);
-//     console.log(board[i].join(' '))
+// const person = {
+//    name: 'vlad',
+//    age: 20
 // }
+
+// const printInfo = function(){
+// return person
+// }
+
+
+
+// const finish = function(){
+//  return  printInfo.call(person)
+// }
+
+
+
+
+// console.log(finish());
+
+
+
+
+// ex  5
+// const arr = [423, 2, -12, 4, 1423, 2, 5];
+
+
+// function sortAsc(arr) {
+//   return arr.sort((a, b) => a - b);
+// }
+
+// function unique(arr) {
+//   return arr.filter((item, index) => arr.indexOf(item) === index);
+// }
+
+
+// function uniqueSorted(arr) {
+//   return sortAsc(unique(arr));
+// }
+
+
+
+// const uniqueSortedArr = uniqueSorted(arr);
+
+// console.log(uniqueSortedArr);
+
+
+
+
+// ex4
+
+
+// const Person = {
+//   name: 'Vlad',
+//   age: 25,
+//   fullName: 'Yanko'
+// } 
+ 
+// function setPersonFullName(str){
+
+//   console.log(1,Person.fullName);
+
+//     function setFullName(obj){
+
+//    obj.fullName = str;
+
+//    console.log(2,Person.fullName)
+
+//    return obj.fullName;
+//   }
+//   setFullName(Person)
+// }
+
+// setPersonFullName.bind(Person)("John Smith")

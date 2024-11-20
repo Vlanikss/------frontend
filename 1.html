@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+const Person = {
+  name: 'Vlad',
+  age: 25,
+  fullName: 'Yanko'
+} 
+ 
+function setPersonFullName(str){
+
+  console.log(1,Person.fullName);
+
+    function setFullName(obj){
+
+   obj.fullName = str;
+
+   console.log(2,Person.fullName)
+
+   return obj.fullName;
+  }
+  setFullName(Person)
+}
+
+setPersonFullName.bind(Person)("John Smith")
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+    </script>
+</body>
+</html>
