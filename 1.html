@@ -7,42 +7,30 @@
 </head>
 <body>
     <script>
-
-
-const Person = {
-  name: 'Vlad',
-  age: 25,
-  fullName: 'Yanko'
-} 
- 
-function setPersonFullName(str){
-
-  console.log(1,Person.fullName);
-
-    function setFullName(obj){
-
-   obj.fullName = str;
-
-   console.log(2,Person.fullName)
-
-   return obj.fullName;
-  }
-  setFullName(Person)
-}
-
-setPersonFullName.bind(Person)("John Smith")
-
-    
-
-
-
-
-
-
-
-    
-
-
+// таймаут
+setTimeout(() => {
+  console.log("Выполнение таймаута на строке 2, новая макрозадача");
+  let p = Promise.resolve("Выполняется промис на строке 3, микрозадача");
+  p.then((res) => console.log(res));
+}, 1000);
+// второй таймаут
+setTimeout(() => {console.log("Выполнение таймаута на строке 8, новая макрозадача")
+  let pr2 = Promise.reject('новое делает')
+  pr2.then ((res)=>console.log(res));
+  
+},1000);
+// консоль
+console.log("Выполнение вывода в консоль на строке 13, синхронный код");
+// промис
+let pr = Promise.resolve().then(() =>
+  console.log("Выполнение промиса на строке 15, первая микрозадача")
+);
+// консоль
+console.log("Выполнение вывода в консоль на строке 19, синхронный код");
+// промис
+pr.then(() =>
+  console.log("Выполнение промиса на строке 21, вторая микрозадача")
+);
 
     </script>
 </body>
