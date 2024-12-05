@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отслеживание грузов</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="text-center">Отслеживание грузов</h1>
+
+    
+    <div class="mb-3">
+        <label for="statusFilter" class="form-label">Фильтровать по статусу:</label>
+        <select id="statusFilter" class="form-select" onchange="filterCargo()">
+            <option value="">Все</option>
+            <option value="Ожидает отправки">Ожидает отправки</option>
+            <option value="В пути">В пути</option>
+            <option value="Доставлен">Доставлен</option>
+        </select>
+    </div>
+
+   
+    <table class="table table-striped" id="cargoTable">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Название</th>
+                <th>Статус</th>
+                <th>Пункт отправления</th>
+                <th>Пункт назначения</th>
+                <th>Дата отправления</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody id="cargoList">
+          
+        </tbody>
+    </table>
+
+   
+    <h3>Добавить новый груз</h3>
+    <form id="addCargoForm" onsubmit="addCargo(event)">
+        <div class="mb-3">
+            <label for="cargoName" class="form-label">Название груза</label>
+            <input type="text" class="form-control" id="cargoName" required>
+        </div>
+        <div class="mb-3">
+            <label for="origin" class="form-label">Пункт отправления</label>
+            <select id="origin" class="form-select" required>
+                <option value="Москва">Москва</option>
+                <option value="Санкт-Петербург">Санкт-Петербург</option>
+                <option value="Екатеринбург">Екатеринбург</option>
+                <option value="Казань">Казань</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="destination" class="form-label">Пункт назначения</label>
+            <select id="destination" class="form-select" required>
+                <option value="Москва">Москва</option>
+                <option value="Санкт-Петербург">Санкт-Петербург</option>
+                <option value="Екатеринбург">Екатеринбург</option>
+                <option value="Казань">Казань</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="departureDate" class="form-label">Дата отправления</label>
+            <input type="date" class="form-control" id="departureDate" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Добавить груз</button>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+let cargoList = [
+    {
+        id: "CARGO001",
+        name: "Строительные материалы",
+        status: "В пути",
+        origin: "Москва",
+        destination: "Казань",
+        departureDate: "2024-11-24"
+    },
+    {
+        id: "CARGO002",
+        name: "Хрупкий груз",
+        status: "Ожидает отправки",
+        origin: "Санкт-Петербург",
+        destination: "Екатеринбург",
+        departureDate: "2024-11-26"
+    }
+];
+
+
+function renderTable() {
+    const cargoTable = document.getElementById("cargoList");
+    cargoTable.innerHTML = "";
+    cargoList.forEach(cargo => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${cargo.id}</td>
+            <td>${cargo.name}</td>
+            <td>
+                <select class="form-select" onchange="updateStatus('${cargo.id}', this.value)" style="background-color:${getStatusColor(cargo.status)}">
+                    <option value="Ожидает отправки" ${cargo.status === 'Ожидает отправки' ? 'selected' : ''}>Ожидает отправки</option>
+                    <option value="В пути" ${cargo.status === 'В пути' ? 'selected' : ''}>В пути</option>
+                    <option value="Доставлен" ${cargo.status === 'Доставлен' ? 'selected' : ''}>Доставлен</option>
+                </select>
+            </td>
+            <td>${cargo.origin}</td>
+            <td>${cargo.destination}</td>
+            <td>${cargo.departureDate}</td>
+            <td><button class="btn btn-danger" onclick="deleteCargo('${cargo.id}')">Удалить</button></td>
+        `;
+        cargoTable.appendChild(row);
+    });
+}
+
+function getStatusColor(status) {
+    switch (status) {
+        case "Ожидает отправки":
+            return "yellow";
+        case "В пути":
+            return "lightblue";
+        case "Доставлен":
+            return "lightgreen";
+        default:
+            return "white";
+    }
+}
+
+function addCargo(event) {
+    event.preventDefault();
+    const cargoName = document.getElementById("cargoName").value;
+    const origin = document.getElementById("origin").value;
+    const destination = document.getElementById("destination").value;
+    const departureDate = document.getElementById("departureDate").value;
+
+    if (!cargoName || !origin || !destination || !departureDate) {
+        alert("Пожалуйста, заполните все поля.");
+        return;
+    }
+
+    const newCargo = {
+        id: "CARGO" + (cargoList.length + 1).toString().padStart(3, '0'),
+        name: cargoName,
+        status: "Ожидает отправки",
+        origin: origin,
+        destination: destination,
+        departureDate: departureDate
+    };
+
+    cargoList.push(newCargo);
+    renderTable();
+    document.getElementById("addCargoForm").reset();
+}
+
+function updateStatus(id, newStatus) {
+    const cargo = cargoList.find(c => c.id === id);
+    if (cargo) {
+        cargo.status = newStatus;
+        renderTable();
+    }
+}
+
+function deleteCargo(id) {
+    cargoList = cargoList.filter(cargo => cargo.id !== id);
+    renderTable();
+}
+
+function filterCargo() {
+    const filter = document.getElementById("statusFilter").value;
+    const filteredCargo = cargoList.filter(cargo => !filter || cargo.status === filter);
+    renderTable(filteredCargo);
+}
+
+renderTable();
+</script>
+
+</body>
+</html>
