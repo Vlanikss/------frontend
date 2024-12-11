@@ -1,0 +1,52 @@
+
+.div__main{
+    border: 2px solid rgb(156, 153, 153);
+    
+    width: 400px;
+    height: 400px;
+    margin-left: 35%;
+}
+.main_input{
+   width: 200px;
+   height: 20px;
+   border: 3px solid rgb(156, 153, 153);
+   margin: 5px 4px;
+}
+
+.main_down{
+    margin:5px 5px;
+    border: 2px solid rgb(156, 153, 153);
+    height: 350px;
+}
+.main_btn, .main_btn2{
+    background-color: rgb(176, 176, 234);
+    border: none;
+    padding: 6px 7px;
+    cursor: pointer;
+}
+.new_message{
+    border: 2px solid rgb(176, 176, 234) ;
+    background-color: transparent;
+    border-radius: 10px;
+    height: 20px;
+    width: 40%;
+    display: block;
+   position: relative;
+   margin-left: 220px;
+   text-align: center;
+}
+.new_message2{
+    border: 2px solid rgb(176, 176, 234) ;
+    background-color: transparent;
+    border-radius: 10px;
+    height: 20px;
+    width: 40%;
+    display: block;
+   position: relative;
+   margin-left: 10px;
+}
+p{
+text-align: center;
+}
+
+
