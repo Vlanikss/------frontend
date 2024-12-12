@@ -1,21 +1,21 @@
 const echo = "wss://echo.websocket.org";
 
 const input = document.querySelector(".main_input")
-const btn1 = document.querySelector(".main_btn")
-const btn2 = document.querySelector(".main_btn2")
+const btn_sms = document.querySelector(".main_btn")
+const btn_nav = document.querySelector(".main_btn2")
 const container = document.querySelector(".main_down")
 
 
-let webSocket = new WebSocket(echo);
+const webSocket = new WebSocket(echo);
 
-function addP(){
+function sendSms(){
     
-    const p = input.value;
-    const pContainer = document.createElement("p")
-    pContainer.innerText = p;
-    container.appendChild(pContainer)
-    pContainer.classList.add("new_message")
-    webSocket.send(p);
+    const paragraph = input.value;
+    const paragraphContainer = document.createElement("p")
+    paragraphContainer.innerText = paragraph;
+    container.appendChild(paragraphContainer)
+    paragraphContainer.classList.add("new_message")
+    webSocket.send(paragraph);
 }
 
 webSocket.onmessage = function (e) {
@@ -36,7 +36,7 @@ webSocket.onclose = function(){
     
 }
 
-btn1.addEventListener("click",addP)
+btn_sms.addEventListener("click",sendSms)
 
 
 
@@ -56,7 +56,7 @@ const succes = (position)=>{
 
 function nav(){
 
-    if (latitude && longitude) {
+    
     const navi = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
     const aContainer = document.createElement("a")
 aContainer.setAttribute('class','mapLink')
@@ -65,10 +65,7 @@ aContainer.href = navi;
     container.appendChild(aContainer)
     aContainer.classList.add("new_message")
    
-} else {
-        console.log("Геолокация не определена.");
-    }
-}
+} 
 
 if(!navigator.geolocation){
     console.log('не поддерживается');
@@ -78,4 +75,4 @@ if(!navigator.geolocation){
     navigator.geolocation.getCurrentPosition(succes, Error)
 }
 
-btn2.addEventListener("click",nav)
+btn_nav.addEventListener("click",nav)
