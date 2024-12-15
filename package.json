@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "request": "^2.88.2"
+  },
+  "name": "курсы frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Vlanikss/------frontend.git",
+  "author": "Vlad <15vlad_yanko08@bk.ru>",
+  "license": "MIT"
+}
