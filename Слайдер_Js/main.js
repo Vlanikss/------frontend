@@ -1,0 +1,70 @@
+let images = [
+    {
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Walther_P99_9x19mm.png/1280px-Walther_P99_9x19mm.png",
+        title: "Walther p99",
+    },
+    {
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/AK-47_type_II_noBG.png/405px-AK-47_type_II_noBG.png",
+        title: "AK-47",
+    },
+    {
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/210816-M-IK792-1121_-_Unknown_Distances_%28Image_9_of_9%29.jpg/1920px-210816-M-IK792-1121_-_Unknown_Distances_%28Image_9_of_9%29.jpg",
+        title: "mk13",
+    },
+];
+
+const sliderBody = document.querySelector(".slider_body");
+const sliderLeftClick = document.querySelector(".slider_leftClick");
+const sliderRightClick = document.querySelector(".slider_rightClick");
+const circlesContainer = document.querySelector(".slider_dots")
+let currentIndex = 0;
+
+
+images.forEach((image,index)=>{
+    const imgElem = document.createElement("img")
+    imgElem.src = image.url;
+    imgElem.alt = image.title;
+    if(index == 0 ) imgElem.classList.add("active")
+        sliderBody.appendChild(imgElem)
+})
+
+const updateSlider = ()=>{
+const allImages = document.querySelectorAll(".slider_body img")
+allImages.forEach((img,index)=>{
+    img.classList.remove("active")
+    if(index === currentIndex) img.classList.add("active")
+})
+}
+
+
+sliderLeftClick.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length; 
+    updateSlider();
+});
+
+sliderRightClick.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % images.length; 
+    updateSlider();
+});
+///////////////////////////////////////////
+images.forEach((_,index)=>{
+    const circle = document.createElement("div")
+    circle.classList.add("slider_circle")
+    if(index === currentIndex) circle.classList.add("active")
+        circle.addEventListener("click",()=>{
+    currentIndex===index;
+    updateSlider()
+})
+circlesContainer.appendChild(circle)
+})
+
+const circlesUpdate = ()=>{
+    const circles = document.querySelectorAll(".slider_circle")
+    circles.forEach((circle,index)=>{
+        circle.classList.toogle("active", index===currentIndex)
+
+    })
+}
+
+
+
