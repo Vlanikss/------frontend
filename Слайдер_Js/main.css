@@ -23,6 +23,7 @@
     display: block;
 }
 
+
 .slider_leftClick,
 .slider_rightClick {
     border: 1px solid black;
@@ -71,18 +72,13 @@
 .text_container{
     display: flex; 
     justify-content: center;
-    gap: 10px;
-    position: relative;
+    gap: 50px;
+    position: absolute;
     z-index: 9999;
+    margin-left: 300px;
+    font-size: 20px;
+    cursor: pointer;
+margin-top: -15px;
+
    
 }
-.slider_text{
-    font-size: 20px;
-    position: absolute;
-    width: auto;
-    height: 50px;
-    margin-top: 600px;
-    cursor: pointer;
-}
-
-

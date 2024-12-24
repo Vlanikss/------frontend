@@ -20,7 +20,7 @@ const circlesContainer = document.querySelector(".slider_circles__container")
 const textContainer = document.querySelector(".text_container")
 let currentIndex = 0;
 
-
+///////////Создаем фото и текст и кружки///////////////////////////
 images.forEach((image,index)=>{
     const imgElem = document.createElement("img")
     imgElem.src = image.url;
@@ -29,26 +29,17 @@ images.forEach((image,index)=>{
         sliderBody.appendChild(imgElem)
 })
 
-const updateSlider = () => {
-    const allImages = document.querySelectorAll(".slider_body img");
-    allImages.forEach((img, index) => {
-        img.classList.remove("active");
-        if (index === currentIndex) img.classList.add("active");
-    });
-    textUpdate(); // Добавлено здесь
-}
-
-
-sliderLeftClick.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + images.length) % images.length; 
-    updateSlider();
-});
-
-sliderRightClick.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % images.length; 
-    updateSlider();
-});
-///////////////////////////////////////////
+images.forEach((image,index)=>{
+    const textElem = document.createElement("p")
+    textElem.classList.add("active")
+    textElem.textContent= image.title
+    if(index === 0) textElem.classList.add("active")
+        textElem.addEventListener("click",()=>{
+    currentIndex = index;
+    updateSlider()
+        })
+        textContainer.appendChild(textElem)
+})
 images.forEach((_,index)=>{
     const circle = document.createElement("div")
     circle.classList.add("slider_circle")
@@ -59,6 +50,26 @@ images.forEach((_,index)=>{
 })
 circlesContainer.appendChild(circle)
 })
+//////////////////////////обновление///////////////////////////////////////
+
+const textUpdate = () =>{
+    const texts = document.querySelectorAll(".slider_text")
+    texts.forEach((text,index)=>{
+       text.classList.remove("active")
+       if (index === currentIndex) text.classList.add("active")
+    })
+
+}
+
+const updateSlider = ()=>{
+const allImages = document.querySelectorAll(".slider_body img")
+allImages.forEach((img,index)=>{
+    img.classList.remove("active")
+    if(index === currentIndex) img.classList.add("active")
+})
+textUpdate()
+}
+ 
 
 const circlesUpdate = ()=>{
     const circles = document.querySelectorAll(".slider_circle")
@@ -69,26 +80,17 @@ const circlesUpdate = ()=>{
 }
 updateSlider()
 
+sliderLeftClick.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length; 
+    updateSlider();
+});
 
-images.forEach((image,index)=>{
-    const textElem = document.createElement("p")
-    textElem.classList.add("slider_text")
-    textElem.textContent= image.title
-    if(index === currentIndex) textElem.classList.add("active")
-        textElem.addEventListener("click",()=>{
-    currentIndex = index;
-    updateSlider()
-        })
-        textContainer.appendChild(textElem)
-})
+sliderRightClick.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % images.length; 
+    updateSlider();
+});
 
-const textUpdate = () =>{
-    const texts = document.querySelectorAll(".slider_text")
-    texts.forEach((text,index)=>{
-        text.classList.toggle("active",index===currentIndex)
-    })
 
-}
 updateSlider()
 
 
