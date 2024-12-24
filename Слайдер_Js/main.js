@@ -16,7 +16,8 @@ let images = [
 const sliderBody = document.querySelector(".slider_body");
 const sliderLeftClick = document.querySelector(".slider_leftClick");
 const sliderRightClick = document.querySelector(".slider_rightClick");
-const circlesContainer = document.querySelector(".slider_dots")
+const circlesContainer = document.querySelector(".slider_circles__container")
+const textContainer = document.querySelector(".text_container")
 let currentIndex = 0;
 
 
@@ -28,12 +29,13 @@ images.forEach((image,index)=>{
         sliderBody.appendChild(imgElem)
 })
 
-const updateSlider = ()=>{
-const allImages = document.querySelectorAll(".slider_body img")
-allImages.forEach((img,index)=>{
-    img.classList.remove("active")
-    if(index === currentIndex) img.classList.add("active")
-})
+const updateSlider = () => {
+    const allImages = document.querySelectorAll(".slider_body img");
+    allImages.forEach((img, index) => {
+        img.classList.remove("active");
+        if (index === currentIndex) img.classList.add("active");
+    });
+    textUpdate(); // Добавлено здесь
 }
 
 
@@ -52,7 +54,7 @@ images.forEach((_,index)=>{
     circle.classList.add("slider_circle")
     if(index === currentIndex) circle.classList.add("active")
         circle.addEventListener("click",()=>{
-    currentIndex===index;
+    currentIndex=index;
     updateSlider()
 })
 circlesContainer.appendChild(circle)
@@ -61,10 +63,32 @@ circlesContainer.appendChild(circle)
 const circlesUpdate = ()=>{
     const circles = document.querySelectorAll(".slider_circle")
     circles.forEach((circle,index)=>{
-        circle.classList.toogle("active", index===currentIndex)
+        circle.classList.toggle("active", index===currentIndex)
 
     })
 }
+updateSlider()
 
+
+images.forEach((image,index)=>{
+    const textElem = document.createElement("p")
+    textElem.classList.add("slider_text")
+    textElem.textContent= image.title
+    if(index === currentIndex) textElem.classList.add("active")
+        textElem.addEventListener("click",()=>{
+    currentIndex = index;
+    updateSlider()
+        })
+        textContainer.appendChild(textElem)
+})
+
+const textUpdate = () =>{
+    const texts = document.querySelectorAll(".slider_text")
+    texts.forEach((text,index)=>{
+        text.classList.toggle("active",index===currentIndex)
+    })
+
+}
+updateSlider()
 
 
