@@ -18,6 +18,7 @@ module.exports = {
     directory: path.join(__dirname, "dist"),
   },
   port:1488,
+  hot: true,
 },
 stats: {
  children: false,
@@ -38,6 +39,7 @@ stats: {
   },
   optimization: {
    
-  }
+  },
+  devtool: 'source-map'
   
 };
