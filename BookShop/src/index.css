@@ -1,3 +1,53 @@
-.lol{
-    background-color: blue;
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+
+.header__h2{
+    font-size: 24px;
+    line-height: 30px;
+
+}
+header{
+    font-weight: 500;
+    font-size: 14px;
+    display: flex;
+    min-height: 76px;
+    align-items: center;
+    padding-left: 120px;
+    padding-right: 120px;
+    background-color: #FFFFFF;
+    flex-wrap: wrap;
+    text-decoration: none;
+    border-bottom: 2px solid #EFF2F2;
+
+}
+.header__ul{
+    
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin-right: 150px;
+    margin-left: 51px;
+    
+}
+.header__ul_item{
+    color: black;
+    font-size: 16px;
+    text-decoration: none;
+}
+.header_img{
+    margin-left: 40px;
+    cursor: pointer;
+}
+.header_icons{
+   
+    margin-left: 100px;
+}
+.header__nav{
+    margin-left: 180px;
 }

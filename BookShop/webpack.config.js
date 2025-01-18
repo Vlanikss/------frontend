@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 
 module.exports = {
   mode: 'development', // Режим разработки
@@ -20,6 +22,11 @@ module.exports = {
       template: './src/index.html', // Ваш HTML-шаблон
       filename: 'index.html', // Название выходного файла
     }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: path.resolve(__dirname, 'src/img'), to: 'img' },
+      ],
+    }),
   ],
   module: {
     rules: [
@@ -39,6 +46,10 @@ module.exports = {
           'css-loader',   // Обработка CSS файлов
           'sass-loader',  // Компиляция SCSS в CSS
         ],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i, // Для обработки изображений
+        type: 'asset/resource', // Переносит файлы в выходную папку
       },
     ],
   },
