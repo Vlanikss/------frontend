@@ -14,7 +14,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between; 
-    padding: 0 20px; /* Уменьшить отступы */
+    padding: 0 20px; 
     min-height: 76px;
     background-color: #FFFFFF;
     border-bottom: 2px solid #EFF2F2;
@@ -68,7 +68,7 @@ header {
 }
 
 .slider_body img {
-    height: 100%; /* Устанавливаем в % от контейнера */
+    height: 100%; 
     width: 100%;
     display: none;
     margin-left: -60px;
@@ -203,14 +203,14 @@ margin-top: -15px;
     width: 924px;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px;
     padding: 20px;
     margin-left: 350px;
     margin-top: -700px;
   }
   
   .book-card {
-    border: 1px solid #ddd;
+   
     padding: 10px;
     width: 424px;
     height: 300px;
@@ -219,46 +219,95 @@ margin-top: -15px;
     align-items: center;
   }
   
-  .book-card img {
-    max-width: 100%;
-    height: auto;
-    
+  .book-card-content {
+    display: flex; 
+    gap: 20px; 
+    align-items: flex-start; 
+    width: 100%;
   }
   
-  .book-card .title {
+  .book-cover {
+    width: 500px; 
+    height: 300px; 
+    object-fit: cover; 
+  }
+ 
+  .book-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+  }
+  
+  .title {
     font-weight: bold;
     margin: 10px 0;
   }
   
-  .book-card .author, .book-card .price {
+  .author, .price, .description {
     font-size: 0.9em;
     color: #555;
   }
   
-  .book-card .rating {
+  .rating {
     display: flex;
     align-items: center;
   }
   
-  .book-card .rating span {
+  .rating span {
     margin-left: 5px;
   }
   
   .buy-now {
-    background: #007bff;
-    color: white;
+   background-color: transparent;
+    color: blue;
     padding: 10px;
-    border: none;
+    border: 2px blue solid;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 200px;
+    margin-left: 240px;
+    position: absolute;
+    padding: 18px 66px;
+    font-weight: 600;
+
   }
   
   .buy-now.active {
-    background: #28a745;
+    color: #555;
+    border: 2px #555 solid;
+    font-weight: 600;
+  }
+  .category:hover{
+    font-size: 20px;
+    font-weight: 700;
   }
 
 
+/* Стили для корзины */
+.cart-count {
+    position: absolute;
+    top: 35px;
+    right: 55px;
+    background-color: red;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: 500;
 
+}
+#load-more{
+    background-color: transparent;
+    color: blue;
+    padding: 10px;
+    border: 2px blue solid;
+    cursor: pointer;
+    margin-top: 200px;
+    margin-left: 240px;
+    position: absolute;
+    padding: 18px 66px;
+    font-weight: 600;
+}
 
 
 

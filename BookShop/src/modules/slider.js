@@ -56,13 +56,13 @@ const circlesUpdate = () => {
 //////////////////////////Автопереключение/////////////////////////////////
 const startAutoSlide = () => {
     setInterval(() => {
-        currentIndex = (currentIndex + 1) % images.length; // Зацикливаем индекс
+        currentIndex = (currentIndex + 1) % images.length; 
         updateSlider();
     }, 5000); // 5 секунд
 };
 
-// Запускаем автопереключение
+
 startAutoSlide();
 
-// Инициализация слайдера
+
 updateSlider();
