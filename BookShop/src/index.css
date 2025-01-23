@@ -23,7 +23,7 @@ header {
 }
 
 .header__ul {
-    flex-grow: 1; /* Позволяет списку занимать доступное пространство */
+    flex-grow: 1; 
     display: flex;
     gap: 40px; 
     margin: 0 20px; 
@@ -53,11 +53,12 @@ header {
 }
 
 .main_slider {
-    border: 1px solid black;
+    
     margin-left: 200px;
     height: 702px;
     width: 1120px;
     position: relative;
+    overflow: hidden;
 }
 
 .slider_body {
@@ -67,14 +68,17 @@ header {
 }
 
 .slider_body img {
-    height: 300px;
-    width: 800px;
-    margin-left: 60px;
+    height: 100%; /* Устанавливаем в % от контейнера */
+    width: 100%;
     display: none;
+    margin-left: -60px;
+    margin-top: -56px;
 }
 
 .slider_body img.active {
     display: block;
+    height: 823px;
+    width: 1240px;
 }
 
 
@@ -90,18 +94,19 @@ header {
     gap: 10px;
     position: relative;
     z-index: 9999;
-    margin-top: 17px;
+    margin-top: 7px;
    
 }
 .slider_circle {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: rgba(239, 238, 246, 1);
+    background-color: rgb(210, 204, 245);
     cursor: pointer;
 }
 .slider_circle:active{
     background-color: rgba(158, 152, 220, 1);
+
 }
 .text_container{
     display: flex; 
@@ -194,6 +199,63 @@ margin-top: -15px;
   
 
 }
+#book-list {
+    width: 924px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    margin-left: 350px;
+    margin-top: -700px;
+  }
+  
+  .book-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 424px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .book-card img {
+    max-width: 100%;
+    height: auto;
+    
+  }
+  
+  .book-card .title {
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .book-card .author, .book-card .price {
+    font-size: 0.9em;
+    color: #555;
+  }
+  
+  .book-card .rating {
+    display: flex;
+    align-items: center;
+  }
+  
+  .book-card .rating span {
+    margin-left: 5px;
+  }
+  
+  .buy-now {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .buy-now.active {
+    background: #28a745;
+  }
 
 
 
