@@ -25,8 +25,9 @@ const exampleBook = {
   author: 'John Doe',
 };
 
+if(document.querySelector('.buy-now')){
 document.querySelector('.buy-now').addEventListener('click', () => {
   addToCart(exampleBook);
 });
-
+}
 updateCartCount();

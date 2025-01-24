@@ -283,7 +283,7 @@ margin-top: -15px;
   }
 
 
-/* Стили для корзины */
+
 .cart-count {
     position: absolute;
     top: 35px;
@@ -302,11 +302,13 @@ margin-top: -15px;
     padding: 10px;
     border: 2px blue solid;
     cursor: pointer;
-    margin-top: 200px;
-    margin-left: 240px;
+    margin-top: 100px;
+    margin-left: 640px;
+    
     position: absolute;
     padding: 18px 66px;
     font-weight: 600;
+
 }
 
 
