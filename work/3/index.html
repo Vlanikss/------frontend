@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оставить заявку</title>
+    <script src="script.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+        <h2 class="text-xl font-semibold text-center mb-4">Оставьте заявку</h2>
+        <form id="orderForm" class="space-y-4">
+            <input type="text" id="name" placeholder="Ваше имя" class="w-full p-2 border rounded" required>
+            <input type="tel" id="phone" placeholder="Ваш телефон" class="w-full p-2 border rounded" required>
+            <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded">Отправить</button>
+        </form>
+        <p id="errorMsg" class="text-red-500 text-center mt-2 hidden">Вы уже отправили заявку!</p>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
