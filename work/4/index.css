@@ -2,8 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
-   
 }
 
 body {
@@ -15,13 +13,13 @@ body {
 .container_intro {
     display: flex;
     height: 100vh;
-   
+    flex-wrap: wrap; /* Добавлено для адаптивности */
 }
 
 /* Левая часть (контент) */
 .left-content {
     width: 50%;
-    background-color: #242222;;
+    background-color: #242222;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,24 +31,24 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed; 
+    position: fixed;
     top: 0;
     left: 0;
     width: 50%;
     padding: 20px 50px;
     background-color: rgba(36, 34, 34, 0.8);
-    z-index: 1000; 
+    z-index: 1000;
 }
-
 
 .logo {
     font-size: 24px;
     font-weight: bold;
-    font-weight:100;
+    font-weight: 100;
 }
-.nav{
-    transform: skewX(-10deg); /* Наклон влево */
+.nav {
+    transform: skewX(-10deg);
 }
+
 .nav a {
     color: #ccc;
     text-decoration: none;
@@ -58,7 +56,6 @@ body {
     margin-right: 10px;
     text-transform: uppercase;
     font-size: 14px;
-    
 }
 
 .nav a:hover {
@@ -66,56 +63,50 @@ body {
 }
 
 /* Текстовая часть */
-.hero-text{
+.hero-text {
     margin-top: 130px;
 }
+
 .hero-text h2 {
     font-size: 58px;
     font-weight: bold;
     line-height: 1.2;
     width: 400px;
     font-weight: 100;
-  
 }
 
 .subtitle {
-   
     font-size: 30px;
     margin-top: 10px;
 }
 
 .features {
-    
     margin-top: 20px;
 }
 
 .features p {
-    
     font-size: 24px;
     margin: 10px 0;
     background-color: #2a2828;
-    background-size: 100% 50%; 
+    background-size: 100% 50%;
     gap: 5px;
-    margin-top:20px;
+    margin-top: 20px;
     font-weight: 100;
     display: flex;
-    align-items: center; 
+    align-items: center;
     width: 400px;
-    
-    
-    
-    
 }
-
 
 .features span {
     font-size: 36px;
-    font-weight:400;
+    font-weight: 400;
 }
-.features img{
+
+.features img {
     height: 35px;
     width: 30px;
 }
+
 .order-btn {
     margin-top: 20px;
     padding: 18px 25px;
@@ -144,11 +135,12 @@ body {
     height: 100%;
     object-fit: cover;
 }
+
 .container_info {
     display: flex;
     align-items: center;
     justify-content: center;
-   padding-top: 50px;
+    padding-top: 50px;
     width: 100%;
     gap: 20px;
     background-color: #372d2d;
@@ -156,19 +148,15 @@ body {
 
 .image-container_info {
     flex: 1;
-    
 }
 
 .image-container_info img {
     width: 500px;
     height: 400px;
-    
-   margin-left: 8px;
-    
+    margin-left: 8px;
 }
 
-.content_info{
-   
+.content_info {
     background: #2a2a2a;
     padding: 20px;
     border-radius: 10px;
@@ -176,7 +164,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    
 }
 
 .feature_info {
@@ -185,7 +172,6 @@ body {
     gap: 15px;
     border-bottom: 1px solid #444;
     padding-bottom: 10px;
-
 }
 
 .icon_info {
@@ -209,4 +195,339 @@ body {
 
 .order-btn_info:hover {
     background: #ddd;
+}
+
+.form-container {
+    display: flex;
+    background-color: white;
+    width: 900px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: 300px;
+    margin-top: 50px;
+}
+
+.form-content {
+    padding: 40px;
+    flex: 1;
+}
+
+.form-content h2 {
+    font-size: 24px;
+    color: #2d3e50;
+    margin-bottom: 20px;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: black;
+}
+
+.checkbox input {
+    width: 10px;
+    margin-top: 8px;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 18px;
+    background-color: rgb(44, 40, 40);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form-container button:hover {
+    background-color: rgb(87, 74, 74);
+}
+
+.form-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container_down {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    margin-top: 20px;
+    border: 1px solid white;
+    border-left: none;
+    border-right: none;
+}
+
+.container_down a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    margin-top: 10px;
+    transform: skewX(-10deg);
+    margin-bottom: 10px;
+}
+
+.container_down a:hover {
+    color: gray;
+}
+
+.footer {
+    background-color: #191919;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+}
+
+.footer-left h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.footer-left p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: gray;
+}
+
+.footer-center {
+    text-align: center;
+}
+
+.social-icons {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.social-icons img {
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
+    transition: opacity 0.3s;
+}
+
+.social-icons img:hover {
+    opacity: 0.7;
+}
+
+.footer-center p a {
+    font-size: 16px;
+    color: gray;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+.footer-right p a {
+    font-size: 16px;
+    color: gray;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.order-btn {
+    background: white;
+    color: black;
+    font-style: italic;
+    font-size: 14px;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.order-btn:hover {
+    background: #ddd;
+}
+
+.footer-right p {
+    margin-top: 8px;
+    font-size: 14px;
+    color: gray;
+}
+@media (max-width: 1024px) {
+    *{
+        overflow-x:hidden;
+    }
+    .container_intro {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .left-content {
+        width: 100%;
+        padding: 40px;
+    }
+
+    .header {
+        width: 100%;
+        padding: 15px 40px;
+    }
+
+    .hero-text {
+        margin-top: 100px;
+    }
+
+    .hero-text h2 {
+        font-size: 48px;
+        width: auto;
+    }
+
+    .features p {
+        width: auto;
+        font-size: 20px;
+    }
+
+    .right-image {
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+    }
+
+    .container_info {
+        flex-direction: column;
+        padding: 30px 20px;
+    }
+
+    .image-container_info img {
+        width: 100%;
+        height: auto;
+    }
+
+    .form-container {
+        width: 90%;
+        margin: 50px auto;
+        flex-direction: column;
+    }
+
+    .form-content {
+        padding: 30px;
+    }
+
+    .form-image {
+        display: none;
+    }
+
+    .container_down {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .footer-left, .footer-center, .footer-right {
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+/* Адаптивные стили для экрана шириной менее 768px */
+@media (max-width: 768px) {
+    *{
+        overflow-x: hidden;
+    }
+    .container_intro {
+        flex-direction: column; /* Контент будет располагаться один под другим */
+    }
+
+    .left-content, .right-image {
+        width: 100%; /* Разделим контейнеры на полную ширину экрана */
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .header {
+        width: 100%;
+        padding: 20px 30px;
+    }
+
+    .hero-text h2 {
+        font-size: 40px; /* Уменьшаем размер шрифта для мобильных */
+        width: 100%;
+    }
+
+    .features p {
+        width: 100%; /* Ширина элементов теперь будет на 100% */
+    }
+
+    .form-container {
+        flex-direction: column; /* Колонки будут располагаться по вертикали */
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .form-image img {
+        width: 80%; /* Уменьшаем размер картинки */
+    }
+
+    .container_down {
+        flex-direction: column; /* Ссылки будут располагаться по вертикали */
+        gap: 10px;
+    }
+
+    .footer {
+        flex-direction: column; /* Размещаем футер по вертикали */
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .social-icons {
+        gap: 20px;
+    }
+}
+
+/* Для очень маленьких экранов (например, смартфонов в портретной ориентации) */
+@media (max-width: 480px) {
+    *{
+        overflow-x: hidden;
+    }
+    .hero-text h2 {
+        font-size: 30px; /* Уменьшаем текст еще больше */
+    }
+
+    .features p {
+        font-size: 18px; /* Уменьшаем размер текста */
+    }
+
+    .order-btn, .order-btn_info {
+        padding: 14px 20px;
+        font-size: 14px; /* Уменьшаем размер кнопок */
+    }
+
+    .footer {
+        padding: 15px 20px;
+    }
 }
