@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../jquery-3.5.1.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h1> Найди клад </h1>
+
+<img src="e55217d0ce0c4e5845a38f466521032e.jpg" height="400" weidth="400" id="map">
+<p id="distance"></p>
+
+    <script>
+//получить случайное число
+var рандомнаяКоордината = function(size){
+    return Math.floor(Math.random()* size);
+};
+// вычилсть расстояние от клада до клика
+var растояниеДоКлада = function(клик, клад){
+    var координатаX = клик.offsetX - клад.x;
+    var координатаY = клик.offsetY - клад.y;
+    return Math.sqrt((координатаX*координатаX) + (координатаY*координатаY));
+};
+// получать подсказки
+var подсказки = function(distance){
+    if (distance < 10){
+        return "Обожжешся"
+    } else if (distance < 20){
+        return "Очень горячо"
+    }else if(distance < 40){
+        return "Горячо"
+    }else if(distance < 80){
+        return "Тепло"
+    }else if(distance < 160){
+        return "холодно"
+    }else if(distance < 320){
+        return"очень холодно"
+    }else{
+        return"Замерзнешь"
+    }
+};
+//создаем игровое поле
+var ширина = 400;
+var высота = 400;
+var сlicks = 0;
+
+var клад = {
+    x: рандомнаяКоордината(ширина),
+    y: рандомнаяКоордината(высота)
+};
+$("#map").click(function(клик){
+    сlicks++;
+    var distance = растояниеДоКлада(клик, клад);
+    var distanceHit = подсказки(distance);
+    $("#distance").text(distanceHit);
+
+
+if (distance < 8){
+    alert("Клад Найден Сделано кликов" + сlicks);
+} else if (сlicks > 100){
+    alert("У вас закончились попытки ")
+}
+
+});
+
+</script>

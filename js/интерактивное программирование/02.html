@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../jquery-3.5.1.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+<h1 id="heading"> привет мир </h1>
+<h2>test</h2>
+
+    <script>
+
+/*var счетчикПикселей = 0;
+var движениеЗаголовка = function() {
+    $("#heading").offset({left:счетчикПикселей});
+    счетчикПикселей++;
+    if (счетчикПикселей > 200) {
+        счетчикПикселей = 0
+        }
+    };
+    setInterval(движениеЗаголовка, 30)*/
+
+
+
+var координатыКликов = function(координата){
+console.log("клик " + координата.pageX + " " + координата.pageY );
+
+};
+ $("html").click(координатыКликов)
+
+$("html").click(function(координата){
+    $("h2").offset({
+        left:координата.pageX,
+        top:координата.pageY
+    });
+});
+
+
+    </script>
+</body>
+</html>

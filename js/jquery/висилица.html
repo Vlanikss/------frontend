@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <script>
+
+        var words = [
+            "футбол",
+            "бокс",
+            "баскетбол",
+            "гандбол"
+        ];
+
+        var word = words[Math.floor(Math.random() * words.length)];
+
+        // создаем массив игровой
+        var answerArray = [];
+        for (var i = 0; i < word.length; i++){
+            answerArray[i] = "_";
+        };
+
+        var remainingLetters = word.length;
+
+        // игровой цикл
+        while (remainingLetters > 0){
+            //показывай статус игры 
+            alert(answerArray.join(" "));
+            // спрашивать вариант ответа 
+            var guess = prompt("Угадай одну букву из загаданного слова");
+            if(guess === null){
+                //выход из игрового цикла
+                break;
+            }else if (guess.length !== 1){
+                // если больше двух букв
+                alert("пожалуйста введите одну букву");
+            }else{
+                //обновляем игру
+                for( var j = 0; j < word.length; j++) {
+                    if (word[j] === guess) {
+                        answerArray[j] = guess;
+                        remainingLetters--;
+                    }
+                }
+            }
+        }
+        // финиш
+        alert(answerArray.join(" "));
+        alert("отлично, было загадано слово " + word);
+    </script>
+</body>
+</html>
