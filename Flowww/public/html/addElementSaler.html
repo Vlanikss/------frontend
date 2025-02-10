@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Магазин Цветов</title>
+  <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>🌸 Магазин Цветов</h1>
+      <p>Добавляйте и просматривайте прекрасные цветы</p>
+    </div>
+  </header>
+  <main class="container">
+    <section class="add-product">
+      <h2>Добавить новый продукт</h2>
+      <form id="productForm" class="form" enctype="multipart/form-data">
+        <input type="text" id="name" placeholder="Название продукта" class="input" required>
+        <input type="number" id="price" placeholder="Цена (₽)" class="input" required>
+        <textarea id="description" placeholder="Описание продукта" class="input textarea" required></textarea>
+        <label for="photos" class="file-label">Выберите до 5 фотографий</label>
+        <input type="file" id="photos" name="photos" multiple accept="image/*" class="file-input" required>
+        <button type="submit" class="button">Добавить продукт</button>
+      </form>
+    </section>
+
+    <section class="product-list">
+      <h2>Список продуктов</h2>
+      <ul id="products" class="products"></ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Магазин Цветов. Все права защищены.</p>
+  </footer>
+
+  <script src="/public/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../jquery-3.5.1.js">  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Привет,мир</h1>
+
+<script>
+
+for (var i = 0; i < 3   ; i++ ) {
+    var hobby = prompt ("назови одно из своих хобби");
+    $("body").append(hobby + "<p>" + "</p>");
+} 
+
+
+
+$("p").fadeOut(3000);
+$("p").text("Вверху ваши хобби и этот текст скоро исчезнет").fadeOut(3000);
+$("p").fadeOut(3000).fadeIn(2000);
+$("p").show(1000).hide(1000);
+
+$("h1").fadeOut(3000);
+$("h1").text("этот текст скоро исчезнет").fadeOut(3000);
+$("h1").fadeOut(3000).fadeIn(2000);
+$("h1").show(1000).hide(1000);
+
+
+//.show(2000)
+//.hide(2000)
+//.delay(2000)
+//.fadeTo(2000, 0.5)
+
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+
+var pickRandomWorld = function(words){
+    return words[Math.floor(Math.random() * words.length)]
+};
+
+var randomBodyParts = ["глаз","нос","череп"];
+var randomAdjectives = ["тупая","унылая","вонючая"];
+var randomWords = ["муха","выдра","крыса","дубина","псина"];
+
+//выбор случайной части тела из массива randomBodyParts
+
+var randomBodyPart = randomBodyParts[Math.floor(Math.random() * 3)];
+
+//выбор случайного прилагательного из массива  randomAdjectives
+
+var randomAdjective = randomAdjectives[Math.floor(Math.random() * 3)]
+
+//выбор случайного слова из массива randomWords
+
+var randomWord = randomWords[Math.floor(Math.random() * 5)];
+
+//соединяем случайные строки в предложения
+
+var randomOutPut = "У тебя " + randomBodyPart + " словно " + randomAdjective + " " + randomWord + "!!!"
+
+//console.log(randomOutPut)
+
+
+/* упрощение с помощью функции*/
+
+ var randomBodyParts = ["глаз","нос","череп"];
+var randomAdjectives = ["тупая","унылая","вонючая"];
+var randomWords = ["муха","выдра","крыса","дубина","псина"];
+
+var randomString = " у тебя " + pickRandomWorld(randomBodyParts) + " словно " + pickRandomWorld(randomAdjectives) + " " + randomWords + "!!!"
+
+/*console.log(randomString) */
+
+
+var generate = function(){
+    var randomBodyParts = ["глаз","нос","череп"];
+var randomAdjectives = ["тупая","унылая","вонючая"];
+var randomWords = ["муха","выдра","крыса","дубина","псина"];
+
+var randomString = " у тебя " + pickRandomWorld(randomBodyParts) + " словно " + pickRandomWorld(randomAdjectives) + " " + randomWords + "!!!"
+
+return console.log(randomString);
+
+
+
+};
+
+generate();
+generate();
+generate();
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <canvas id="canvas" height="400" width="400" >  </canvas>
+
+    <script>
+var canvas = document.getElementById("canvas")
+var ctx = canvas.getContext("2d");
+var size = 0;
+
+
+
+ctx.strokeStyle= "black"
+ctx.lineWidth = 4
+ctx.beginPath();
+//руки
+ctx.moveTo(35,45);
+ctx.lineTo(85,90);
+ctx.moveTo(80,90);
+ctx.lineTo(140,40);
+//ноги
+ctx.moveTo(60,240);
+ctx.lineTo(85,157);
+ctx.moveTo(120,240);
+ctx.lineTo(85,157);
+
+ctx.stroke();
+
+//голова
+ctx.strokeRect(60,0,50,50)
+ctx.fillRect(80,50,8,110)
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

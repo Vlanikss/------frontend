@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<canvas id="canvas" height="400" width="400" >  </canvas>
+
+<script>
+var canvas = document.getElementById("canvas")
+var ctx = canvas.getContext("2d");
+var size = 0;
+
+
+
+/*ctx.strokeStyle = "red"
+ctx.lineWidth = 5
+ctx.strokeRect(60,0,50,50)
+ctx.strokeRect(80,50,10,20)
+ctx.strokeRect(80,70,50,20)
+ctx.strokeRect(40,70,50,20)
+ctx.strokeRect(60,80,50,50)
+ctx.strokeRect(90,130,20,60)
+ctx.strokeRect(60,130,20,60)
+
+//ctx.strokeRect <=== по контуру
+//ctx.fillRect <==== создать залитую фигуру
+//ctx.fillStyle = "цвет" <==== изменить цвет
+//(0,0,0,0) <==  первая это x , вторая y , третье это ширина , четвертое высота
+//ctx.lineWidth <=== насколько линия жирной будет */
+//если есть line то тогда будет не fill а  stroke
+
+
+ctx.strokeStyle ="red"
+ctx.lineWidth = 4;
+
+ctx.beginPath();
+ctx.moveTo(10,10);
+ctx.lineTo(60,60);
+ctx.moveTo(60,10);
+ctx.lineTo(10,60);
+ctx.stroke();
+
+</script>
+
+
+</body>
+</html>

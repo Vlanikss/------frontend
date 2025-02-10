@@ -1,0 +1,168 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  
+  body {
+    background-image: url(/public/images/Joseph_Mallord_William_Turner_-_Venice_with_the_Salute_-_Google_Art_Project.jpg);
+    color: #fff;
+    overflow-x: hidden;
+  }
+  .register-btn{
+    margin-left: 1150px;
+   
+    text-decoration: none; /* Убирает подчеркивание */
+    color: inherit;        /* Наследует цвет текста родительского элемента */
+  }
+  
+  header {
+    height: 100px;
+    padding-left: 30px;
+    font-size: 26px;
+    color:#000000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  header h1 {
+    font-size: 3rem;
+  }
+  .header_img{
+    width: 40px;
+    height: 40px;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    animation: slideIn 1s ease-out;
+  }
+  
+  footer {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    text-align: center;
+    font-size: 1rem;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Анимации */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  /* Контейнер с магазинами */
+  .main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 30px 0;
+  }
+  
+  .store-card {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    margin: 20px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .store-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Для отображения информации о магазине */
+  .store-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .store-card img:hover {
+    transform: scale(1.05);
+  }
+  
+  .store-card h3 {
+    font-size: 1.6rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .store-card p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  button {
+    background-color: #ff7e5f;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #feb47b;
+  }
+  
+  /* Мобильная адаптивность */
+  @media (max-width: 768px) {
+    .main-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .store-card {
+      width: 90%;
+      margin: 10px 0;
+    }
+  
+    header h1 {
+      font-size: 2.5rem;
+    }
+  
+    footer {
+      font-size: 0.9rem;
+    }
+  }
+  
+ 

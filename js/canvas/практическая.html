@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<canvas id="canvas1" height="50" width="50"></canvas>
+<canvas id="canvas2" height="50" width="50"></canvas>
+<canvas id="canvas3" height="50" width="50"></canvas>
+<canvas id="canvas4" height="50" width="50"></canvas>
+<canvas id="canvas5" height="50" width="50"></canvas>
+<canvas id="canvas6" height="165" width="165"></canvas>
+<canvas id="canvas7" height="165" width="165"></canvas>
+<script>
+
+var canvas1 = document.getElementById("canvas1")
+var ct = canvas1.getContext("2d");
+
+var size = 0;
+
+var x = function(){
+    ct.clearRect(0,0,50,50)
+    ct.fillRect(0,0,size,size);
+
+    size++;
+    if (size>50){
+        size = 0
+    }
+}
+    setInterval(x,25)
+
+//------------------------------------------------------------
+var canvas2 = document.getElementById("canvas2")
+var ctx2 = canvas2.getContext("2d");
+
+var size2 = 0
+
+var x2 = function(){
+    ctx2.clearRect(0,0,50,50)
+    ctx2.fillRect(size2,0,20,20)
+
+size2++;
+if (size2>50){
+    size2 = 0
+}
+}
+setInterval(x2,20)
+
+//-----------------------------------------------------------------
+var canvas3 = document.getElementById("canvas3")
+var ctx3 = canvas3.getContext("2d");
+
+var size3 = 0
+
+var x3 = function(){
+    ctx3.clearRect(0,0,50,50)
+    ctx3.fillRect(0,size3,20,20)
+
+    size3++
+    if(size3>50){
+        size3 = 0
+    }
+}
+setInterval(x3,20)
+//-----------------------------------------------------------
+
+var canvas4 = document.getElementById("canvas4")
+var ctx4 = canvas4.getContext("2d");
+
+var size4 = 0
+
+var x4 = function(){
+    ctx4.clearRect(0,0,50,50)
+    ctx4.fillRect(size3,0,2,50)
+
+    size4++
+    if(size4>50){
+        size4 = 0
+    }
+}
+setInterval(x4,20)
+
+//-----------------------------------------------------------
+var canvas5 = document.getElementById("canvas5")
+var ctx5 = canvas5.getContext("2d");
+
+var size5 = 0
+
+var x5 = function(){
+    ctx5.clearRect(0,0,50,50)
+    ctx5.fillRect(0,size5,60,2)
+
+    size5++
+    if(size5>50){
+        size5 = 0
+    }
+}
+setInterval(x5,20)
+
+//------------------бджола---------------------------
+
+var circle = function(x ,y ,radius ,fillCircle){
+    ctx.beginPath();
+    ctx.arc(x ,y ,radius , 0,Math.PI * 2, false);
+    if (fillCircle){
+        ctx.fill()
+        }else{
+            ctx.stroke()
+        }
+    };
+
+var drawBee = function(x,y){
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "black";
+    ctx.fillStyle = "gold";
+
+    circle(x,y,8,true)
+    circle(x,y,8,false)
+    circle(x-5,y-11,5,false)
+    circle(x+5,y-11,5,false)
+    circle(x-2,y-1,2,false)
+    circle(x+2,y-1,2,false)
+};
+
+var update = function(coordinate){
+    var offset = Math.random() * 4 -2;
+    coordinate += offset;
+
+    if (coordinate > 165){
+        coordinate = 165
+    }
+    if(coordinate<0){
+        coordinate = 0
+    }
+    return coordinate;
+};
+var canvas6 = document.getElementById("canvas6")
+var ctx = canvas6.getContext("2d");
+
+var x = 100;
+var y = 100;
+
+
+setInterval(function(){
+
+    ctx.clearRect(0,0,165,165);
+    drawBee(x,y);
+    x = update(x);
+    y = update(y);
+}, 2)
+
+//--------------------------------------------------------
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
