@@ -1,17 +1,15 @@
-"use client";
+import React, { useState, useEffect } from "react";
 
-import { useState, useEffect } from "react";
-
-const CaptureForm = () => {
-  const [token, setToken] = useState("");
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [tags, setTags] = useState("");
-  const [budgetFrom, setBudgetFrom] = useState("");
-  const [budgetTo, setBudgetTo] = useState("");
-  const [deadline, setDeadline] = useState("");
-  const [reminds, setReminds] = useState("");
-  const [autoResponses, setAutoResponses] = useState(false);
+const CaptureForm: React.FC = () => {
+  const [token, setToken] = useState<string>("");
+  const [title, setTitle] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+  const [tags, setTags] = useState<string>("");
+  const [budgetFrom, setBudgetFrom] = useState<string>("");
+  const [budgetTo, setBudgetTo] = useState<string>("");
+  const [deadline, setDeadline] = useState<string>("");
+  const [reminds, setReminds] = useState<string>("");
+  const [autoResponses, setAutoResponses] = useState<boolean>(false);
   const [rules, setRules] = useState({
     budget_from: 5000,
     budget_to: 8000,
@@ -24,17 +22,20 @@ const CaptureForm = () => {
     if (savedToken) setToken(savedToken);
   }, []);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  
+
     if (!token) {
       alert("Токен обязателен!");
       return;
     }
-  
-    console.log("Token:", token); // Проверка правильности токена
-  
+
+    localStorage.setItem("task_token", token);
+
+    const apiUrl = "https://deadlinetaskbot.productlove.ru/api/v1/tasks/client/newhardtask";
+
     const requestData = {
+      token,
       title,
       description,
       tags,
@@ -45,25 +46,18 @@ const CaptureForm = () => {
       all_auto_responses: autoResponses,
       rules,
     };
-  
+
     try {
-      const response = await fetch("https://deadlinetaskbot.productlove.ru/api/v1/tasks/client/newhardtask", {
+      const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`, // Токен с Bearer
-          "Accept": "application/json", // Попробуем добавить Accept
         },
         body: JSON.stringify(requestData),
       });
-  
-      if (!response.ok) {
-        const errorResponse = await response.json();
-        // Выводим больше информации об ошибке
-        alert(`Ошибка: ${response.status}. ${errorResponse.message}`);
-      } else {
+
+      if (response.ok) {
         alert("Задача успешно опубликована!");
-        // Очистка формы
         setTitle("");
         setDescription("");
         setTags("");
@@ -73,13 +67,13 @@ const CaptureForm = () => {
         setReminds("");
         setAutoResponses(false);
         setRules({ budget_from: 5000, budget_to: 8000, deadline_days: 5, qty_freelancers: 1 });
+      } else {
+        alert(`Ошибка: ${response.status}`);
       }
     } catch (error) {
       alert("Ошибка сети!");
-      console.error(error); // Выводим ошибку для отладки
     }
   };
-  
 
   return (
     <div className="max-w-lg mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
