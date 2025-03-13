@@ -1,0 +1,41 @@
+.column {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
+    min-height: 300px;
+    margin: 0 10px;
+}
+
+.columnTitle {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.taskList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.addCardButton {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.addCardButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.submitButton {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
