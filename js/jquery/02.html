@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="../jquery-3.5.1.js"></script>
+</head>
+<body>
+
+    <h1 id="heading">Привет, мир!</h1>
+    <h2>test</h2>
+    <script>
+
+        var счет = 0;
+        var го = function() {
+            $("#heading").offset({left:счет});
+            счет++;
+            if (счет > 200) {
+                счет = 0
+            }
+        };
+        setInterval(го, 60)
+
+        /*
+    Метод offset принимает объект, который может содержать свойство
+    left для задания смещения от левого края или свойство top для смещения
+    от верха страницы. В данном случае мы выбрали свойство left
+    и присвоили ему значение переменной leftOffset. Если бы требовалось
+    задать неизменное смещение, мы могли бы указать для свойства числовое
+    значение
+        */
+
+    /* реакция на клики */ 
+
+    var clickHander = function (координата) {
+        console.log("Клик! " + координата.pageX + " " + координата.pageY);
+    };
+    $("h2").click(clickHander)
+
+    /*-----мышка-------------*/
+
+  /*  $("html").mousemove(function (event){
+        $("h2").offset({
+            left:event.pageX,
+            top:event.pageY
+        });
+    });
+    */    
+
+    </script>
+</body>
+</html>

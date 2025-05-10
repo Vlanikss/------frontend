@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<Script>
+
+
+var drawEmodzi = function(howMany){
+    for( var i = 0; i < howMany; i++){
+        console.log(  i + "=^-^=");
+    }
+};
+
+
+// drawEmodzi(6)
+
+/*------------------------передача  функции в нескольких аргументах--------------------------------*/
+
+var twoArgument = function( howMany, whatToDraw){
+for( var i = 0; i < howMany; i++){
+    console.log(i + " " + whatToDraw);
+}
+
+};
+
+twoArgument( 5 , "=^-^=" );  // 5 = howMany   "=^-^=" =  whatToDraw
+
+
+
+
+
+
+
+
+</Script>
+
+
+
+</body>
+</html>

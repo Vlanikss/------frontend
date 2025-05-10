@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        var pic = ["Камень","Ножницы","Бумага"];
+        
+        var pic2 = pic[Math.floor(Math.random() * 3)];
+        
+      console.log(pic2)
+
+        alert("Играем в игру 'Камень, Ножницы, Бумага' !");
+        var choice = prompt("Выбери 'Камень, Ножницы или Бумагу'");
+
+        choice === ["Камень","Ножницы","Бумага"];
+
+        if (pic2 === "Камень" && choice === "Ножницы"){
+            alert("ты проиграл я выбрал " + pic2 )
+        } else if (pic2 === "Камень" && choice === "Бумага"){
+            alert("ты выиграл я выбрал " + pic2 )
+         // ножницы
+        }else if (pic2 === "Ножницы" && choice === "Камень"){
+            alert("выиграл я выбрал  " + pic2 )
+        } else if (pic2 === "Ножницы" && choice === "Бумага"){
+            alert("проиграл я выбрад " + pic2 )
+        } 
+        //бумага
+        else if (pic2 === "Бумага" && choice === "Камень"){
+            alert("ты проиграл, я выбрал" + pic2 )
+        }else if (pic2 === "Бумага" && choice === "Ножницы"){
+            alert("Ты выиграл, я выбрал  " + pic2 )
+        }else{
+            alert("ничья, я выбрал "+ pic2)
+        }
+
+
+
+
+    </script>
+</body>
+</html>

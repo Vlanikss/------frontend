@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="../jquery-3.5.1.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="heading"> привет мир </h1>
+<h2>test</h2>
+
+
+<script>
+
+  
+
+var счетчикПикселейY = 0;
+var счетчикПикселейX = 0;
+
+var движениеЗаголовка = function() {
+    $("#heading").offset({left:счетчикПикселейX});
+    счетчикПикселейX++;
+    if (счетчикПикселейX > 200) {
+         счетчикПикселейX = 200;
+         setInterval(движениеЗаголовка1, 150)
+
+        }
+    };
+    setInterval(движениеЗаголовка, 10)
+
+
+
+    var движениеЗаголовка1 = function() {
+    $("#heading").offset({top:счетчикПикселейY});
+    счетчикПикселейY++;
+    if (счетчикПикселейY > 200) {
+         счетчикПикселейY = 200 
+
+        }
+    };
+    
+
+
+
+
+
+
+
+    
+</script>
+
+</body>
+</html>

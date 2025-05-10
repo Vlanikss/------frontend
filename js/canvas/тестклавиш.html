@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.5.1.js"></script>
+</head>
+<body>
+
+
+    <script>
+
+var keyNames = {
+32: "стоп",
+65: "влево",
+68: "вправо",
+87: "вверх",
+83: "вниз" ,
+38: "вверх2" ,
+37: "влево2" ,
+40: "вниз2" ,
+39: "вправо2"
+}
+
+
+    $("body").keydown(function(nazatieKlavish){
+       console.log(nazatieKlavish.keyCode);
+    });
+    
+
+
+    </script>
+
+</body>
+</html>

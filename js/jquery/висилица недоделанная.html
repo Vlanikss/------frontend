@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <h1>Висилица</h1>
+</head>
+<body>
+    
+<script>
+
+
+var words = [
+
+"воллейбол",
+"футбол",
+"тенлис",
+"боклс" 
+
+];
+
+ var word = words[Math.floor(Math.random() * words.length)]
+
+ 
+
+  var numberOfAttempts = 5;
+
+  alert(" Слово состоит из " +  word.length + " "  + "букв"  + " и у вас есть  " +  numberOfAttempts  + " попыток " );
+
+// Создаём массив в котором заменяем буквы в слове на  " _ "
+
+var  answerArray = []
+for (var i = 0; i < word.length;  i++) {
+    answerArray[i] = "_";
+};
+
+for (var g = 0; g < word.length; g++){
+                eval("var id_"+g+"="+g);
+                id_0 = word[0];
+                id_1 = word[1];
+                id_2 = word[2];
+                id_3 = word[3];
+                id_4 = word[4];
+                id_5 = word[5];
+                id_6 = word[6];
+                id_7 = word[7];
+            }
+
+var longWord = word.length;
+ 
+
+// создаем новый игровой цикл 
+
+while(longWord > 0){
+    // показываем статус игры
+    alert (answerArray.join("   "));
+    // спрашивать вариант ответа
+    var guess = prompt("угадай одну букву из загаданного слова");
+    if(guess === null){
+        // выход из  игрового цикла
+        break;
+
+
+    //eсли больше двух букв
+    }else if (guess.length !== 1){
+        alert("пожалуйста введите одну букву")
+
+        } else {
+         for (var p = 0; p < word.length; p++) {
+    // В случае если введёный символ введён повторно просим ввести символ повторно
+        if ( guess === wordGuessedLetters[p]) {
+       alert("Такая буква уже отгадана попробуй другую!")
+        break;
+         } 
+        // В случае если такой символ есть убираем одну букву
+        if ( guess === word[p]) {
+         wordGuessedLetters[p] = guess;
+         longWord--;
+         restOfLetter = longWord;
+         }
+    
+    
+ 
+// Создаём цикл который проверяет введёный символ 
+for (var c = 0; c < 1; c++) {
+        if (id_0 === guess || id_1 === guess || id_2 === guess || id_3 === guess || id_4 === guess || id_5 === guess || id_6 === guess || id_7 === guess){
+       alert("Вы отгадали букву!!! " + answerArray(" ") + " колличество ваших попыток = " + numberOfAttempts)
+       break;
+        // Если такого символа нет убираем попытку.                   
+         } else {
+           numberOfAttempts--;
+            alert("Увы такой буквы в слове " + answerArray(" ") + " нет, колличество ваших попыток = " + numberOfAttempts)
+              break;
+             }
+         }
+     }               
+}
+
+
+
+// финиш
+if (longWord == 0){
+            alert("Вы отгадали все " + "''" + word.length + "''" + " букв в слове " + answerArray(" ") + " и у Вас в запасе осталось ещё " + numberOfAttempts + " попыток!");
+            } 
+        // Если слово неотгадано выводим попробуйте заново!
+            else {alert("У вас закончились попытки и слово не отгаданно попробуйте заново")}
+
+
+
+
+</script>
+
+
+
+
+
+
+</body>
+</html>

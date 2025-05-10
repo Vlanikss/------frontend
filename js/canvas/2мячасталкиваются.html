@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../jquery-3.5.1.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" height="400" width="400"></canvas>
+<script>
+
+var canvas = document.getElementById("canvas")
+var ctx = canvas.getContext("2d");
+var width = canvas.width;
+var height = canvas.height;
+var radius = 10;
+var circle = function(x, y, radius, fillCircle) {
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+        ctx.fillStyle = "blue"
+        if (fillCircle){
+            ctx.fill();
+        }else{
+            ctx.stroke();
+        }
+    };
+    var circle2 = function(x, y, radius, fillCircle) {
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+        ctx.fillStyle = "orange"
+        if (fillCircle){
+            ctx.fill();
+        }else{
+            ctx.stroke();
+        }
+    };
+
+
+
+    var Ball = function(){
+
+        this.x =width/2;
+        this.y = height/2;
+        this.xSpeed = 5;
+        this.ySpeed = 0;
+    }
+
+    var Ball2 = function(){
+
+    this.x2 =width/2;
+    this.y2 = height/2;
+    this.x2Speed = -5;
+    this.y2Speed = 0;
+    }
+
+    Ball.prototype.move = function(){
+        this.x += this.xSpeed;
+        this.y += this.ySpeed;
+
+        if (this.x < 0 || this.x > width  ){
+            this.xSpeed = -this.xSpeed
+            ;
+        }
+        if (this.y < 0 || this.y > height   ){
+            this.ySpeed = -this.ySpeed
+            ;
+        }
+    };
+
+     Ball.prototype.crash = function(){
+        this.x += this.xSpeed;
+        this.y += this.ySpeed;
+        if (this.x === this.x2){
+            this.xSpeed = -this.xSpeed
+        }  else if  (this.y === this.y2){
+            this.ySpeed = -this.ySpeed
+        }
+     };
+
+
+
+    Ball2.prototype.move = function(){
+        this.x2 += this.x2Speed;
+        this.y2 += this.y2Speed;
+
+        if (this.x2 < 0 || this.x2 > width   ){
+            this.x2Speed = -this.x2Speed 
+           ;
+        }
+        if (this.y2 < 0 || this.y2 > height ){
+            this.y2Speed = -this.y2Speed
+            ;
+        }
+    };
+    Ball2.prototype.crash = function(){
+        this.x2 += this.x2Speed;
+        this.y2 += this.y2Speed;
+        if (this.x2 === this.x){
+            this.x2Speed = -this.x2Speed
+        }  else if (this.y2 === this.y){
+            this.y2Speed = -this.y2Speed
+        }
+        };
+
+    Ball.prototype.draw = function () {
+            circle(this.x, this.y,radius, true);
+    }
+    Ball2.prototype.draw = function () {
+            circle2(this.x2, this.y2,radius, true);
+    }
+
+        var keyAction = {
+87: "вверх",           
+32: "стоп",
+65: "влево",
+68: "вправо",
+83: "вниз"
+
+};
+
+        Ball.prototype.setDirection = function(direction){
+        if (direction === "вправо"){
+            this.xSpeed = 5;
+            this.ySpeed = -0;
+        }else if (direction === "вниз"){
+            this.xSpeed = 0;
+            this.ySpeed = 5;
+        }else if(direction === "влево"){
+            this.xSpeed = -5;
+            this.ySpeed = 0;
+        }else if(direction === "вверх"){
+            this.xSpeed = 0;
+            this.ySpeed = -5;
+        }else if(direction === "стоп"){
+            this.xSpeed = 0;
+            this.ySpeed = 0;
+        }
+    };
+    
+    var ball = new Ball();
+    var ball2 = new Ball2();
+   
+
+$("body").keydown(function(event){
+var direction = keyAction[event.keyCode];
+ball.setDirection(direction);
+});
+
+setInterval(function(){
+ctx.clearRect(0,0,width,height)
+ball.draw();
+ball2.draw();
+ball.move();
+ball2.move();
+ball.crash();
+ball2.crash();
+ctx.strokeRect(0,0,width,height);
+},38)
+</script>
+
+</body>
+</html>

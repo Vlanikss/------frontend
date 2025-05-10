@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="rus">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../jquery-3.5.1.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="400" height="400"></canvas>
+
+    <script>
+/*
+        var keyNames = {
+            32: "стоп",
+            65: "влево",
+            68: "вправо",
+            87: "вверх",
+            83: "вниз"
+        };
+
+        $("body").keydown(function (event){
+            console.log(keyNames[event.keyCode]);
+        }); */
+
+
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        var width = canvas.width;
+        var height = canvas.height;
+
+        var circle = function(x, y, radius, fillCircle) {
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+        if (fillCircle){
+            ctx.fill();
+        }else{
+            ctx.stroke();
+        }
+    };
+
+
+
+    var Ball = function(){
+        this.x = width / 2;
+        this.y = height / 2;
+        this.xSpeed = 5;
+        this.ySpeed = 0;
+    };
+
+    Ball.prototype.move = function () {
+            this.x += this.xSpeed;
+            this.y += this.ySpeed;
+
+            if (this.x < 0){
+                this.x = width;
+            }else if (this.x > width) {
+                this.x = 0;
+            }
+            if (this.y < 0){
+                this.y = height;
+            }else if (this.y > height) {
+                this.y = 0;
+            }
+        };
+
+    Ball.prototype.draw = function () {
+        circle(this.x, this.y, 7, true);
+        };
+
+
+
+        Ball.prototype.ballSpeed = function (direction){
+            if (direction === "shift" && this.xSpeed === 5 && this.ySpeed === 0 ){
+                this.xSpeed++;
+       
+            } else if (direction === "shift" && this.xSpeed === -5 && this.ySpeed === 0 ){
+                this.xSpeed--;
+            } else if (direction === "shift" && this.xSpeed === 0 && this.ySpeed === 5 ){
+                this.ySpeed++;
+            } else if (direction === "shift" && this.xSpeed === 0 && this.ySpeed === -5 ){
+                this.ySpeed--;
+            } else if (direction === "ctrl" && this.xSpeed === 5 && this.ySpeed === 0 ){
+                this.xSpeed--;
+            } else if (direction === "ctrl" && this.xSpeed === -5 && this.ySpeed === 0 ){
+                this.xSpeed++;
+            } else if (direction === "ctrl" && this.xSpeed === 0 && this.ySpeed === 5 ){
+                this.ySpeed--;
+            } else if (direction === "ctrl" && this.xSpeed === 0 && this.ySpeed === -5 ){
+                this.ySpeed++;
+            }
+           
+            }
+       
+
+
+
+        
+
+    Ball.prototype.setDirection = function (direction) {
+        if (direction === "вверх") {
+            this.xSpeed = 0;
+            this.ySpeed = -5;
+        } else if (direction === "вниз") {
+            this.xSpeed = 0;
+            this.ySpeed = 5;
+        } else if (direction === "влево") {
+            this.xSpeed = -5;
+            this.ySpeed = 0;
+        } else if (direction === "вправо") {
+            this.xSpeed = 5;
+            this.ySpeed = 0;
+        } else if (direction === "стоп") {
+            this.xSpeed = 0;
+            this.ySpeed = 0;
+        } 
+    };
+
+    var ball = new Ball();
+
+    var keyAction = {
+            32: "стоп",
+            65: "влево",
+            68: "вправо",
+            87: "вверх",
+            83: "вниз",
+            17: "ctrl",
+            16: "shift"
+        };
+
+        $("body").keydown(function (event){
+            var direction = keyAction[event.keyCode];
+            ball.setDirection(direction);
+        });
+        
+     
+
+        $("body").keydown(function (event){
+            var direction = keyAction[event.keyCode];
+            ball.ballSpeed(direction);
+        });
+
+        setInterval(function(){
+            ctx.clearRect(0,0, width, height);
+            ball.draw();
+            ball.move();
+            ctx.strokeRect(0, 0, width, height);
+        }, 46 )
+
+    </script>
+</body>
+</html>

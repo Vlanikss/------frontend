@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../jquery-3.5.1.js">  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+///////////рисуем машины
+
+var Car = function (x,y){
+
+    this.x = x;
+    this.y = y;
+};
+
+Car.prototype.draw = function(){
+
+    var carHtml = '<img src="Car.png">';
+    this.carElement = $(carHtml);
+    this.carElement.css({
+
+    position: "absolute",
+    left:this.x,
+    top:this.y
+});
+
+$("body").append(this.carElement);
+
+};
+////// конец рисования
+
+/////////////////передвигаем машины
+Car.prototype.moveRight = function(){
+    this.x +=20;
+
+    this.carElement.css({
+        left:this.x,
+        top:this.y
+    });
+};
+
+
+
+////// на сколько пикселей передвигать(скорость)
+Car.prototype.moveRight = function (speed) {
+  var carSpeed = speed || Car.speed;
+  this.x += carSpeed;
+
+  this.carElement.css({
+    left: this.x,
+    top: this.y
+  });
+};
+
+
+
+
+
+Car.prototype.moveDown = function(){
+    this.y +=20;
+
+    this.carElement.css({
+        left:this.x,
+        top:this.y
+    });
+};
+
+Car.prototype.moveUp = function(){
+    this.y -=20;
+
+    this.carElement.css({
+        left:this.x,
+        top:this.y
+        
+    });
+};
+
+Car.prototype.moveLeft = function(){
+    this.x -=20;
+
+    this.carElement.css({
+        left:this.x,
+        top:this.y
+    });
+};
+
+var tesla = new Car(20,20);
+var nissan = new Car(100,200);
+tesla.draw();
+nissan.draw();
+
+
+
+    </script>
+
+
+</body>
+</html>

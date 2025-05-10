@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регистрация</title>
+  <link rel="stylesheet" href="/public/css/stylesReg.css"> <!-- Ваш CSS -->
+</head>
+<body>
+
+    <header>
+        <div class="header__logo">
+            <img class="header_img" src="/public/images/2644.750x0.png" alt="лого">
+        </div>
+        <nav class="header__nav">
+            <div class="menu">
+                <p class="header_name"><a href="main.html">Flowww</a></p>
+            </div>
+        </nav>
+    </header>
+
+  <main class="main-container">
+    <div class="register-container">
+      <h2>Зарегистрироваться как:</h2>
+      
+      <!-- Выбор роли -->
+      <div class="role-selection">
+        <button id="buyerBtn" class="role-button">Покупатель</button>
+        <button id="sellerBtn" class="role-button">Продавец</button>
+      </div>
+
+      <form id="registerForm">
+        <input type="text" id="name" name="name" placeholder="Ваше имя" required />
+        <input type="email" id="email" name="email" placeholder="Электронная почта" required />
+        <input type="password" id="password" name="password" placeholder="Пароль" required />
+        
+        <!-- Дополнительное поле для продавца -->
+        <div id="storeNameContainer" style="display:none;">
+          <input type="text" id="storeName" name="storeName" placeholder="Название магазина" />
+        </div>
+        
+        <button type="submit" class="register-button">Зарегистрироваться</button>
+      </form>
+      
+      
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Магазин Цветов. Все права защищены.</p>
+  </footer>
+
+ 
+<script src="/public/js/scriptsReg.js"></script>
+</body>
+</html>
